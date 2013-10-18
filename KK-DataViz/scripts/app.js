@@ -8,22 +8,19 @@
 
     document.addEventListener("deviceready", function () {
         application = new kendo.mobile.Application(document.body, { transition: "", layout: "mobile-tabstrip" });
-    }, false);
-
-    //Skin change function is for the demo. On real project only one theme should be chosen.
-    app.changeSkin = function (e) {
-        if (e.sender.element.text() === "Flat") {
-            e.sender.element.text("Native");
-            global.app.chartsTheme = 'flat';
-            mobileSkin = "flat";
-        }
-        else {
-            e.sender.element.text("Flat");
-            global.app.chartsTheme = defaultChartTheme;
-            mobileSkin = "";
-        }
-
+        global.app.chartsTheme = 'flat';
+        mobileSkin = "flat";
         application.skin(mobileSkin);
         application.view().show();
-    }; 
+    }, false);
+
+    
+    app.data = {
+        person : {
+            name : 'KK'
+        },
+        calories : [20, 10, 40, 30, 20, 10, 60],
+        fat : [60, 20, 30, 20, 50, 40, 10]
+    }
+    
 })(window);
